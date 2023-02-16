@@ -1,5 +1,5 @@
 <div class="ct">
-  <button onclick="location.href='do=new_admin'">新增管理員</button>
+  <button onclick="location.href='?do=new_admin'">新增管理員</button>
 </div>
 
 <table class="all ct">
@@ -20,7 +20,7 @@
         if ($row['acc'] != 'admin') {
 
         ?>
-          <button onclick="location.href='do=edit_admin'">修改</button>
+          <button onclick="location.href='?do=edit_admin&id=<?= $row['id'] ?>'">修改</button>
           <button onclick="del('admin',<?= $row['id'] ?>)">刪除</button>
         <?php
         } else {
