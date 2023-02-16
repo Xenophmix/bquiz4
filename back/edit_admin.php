@@ -4,7 +4,7 @@
     <tr>
       <?php
       $row = $Admin->find($_GET['id']);
-      $row['pr'] = unserialize($_GET['pr'])
+      $row['pr'] = unserialize($row['pr'])
       ?>
       <td class="tt ct">帳號</td>
       <td class="pp"><input type="text" name="acc" value="<?= $row['acc'] ?>"></td>
