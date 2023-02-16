@@ -26,7 +26,7 @@
   </tr>
 </table>
 <div class="ct">
-  <button onclick="login('mem')">確認</button>
+  <button onclick="login('admin')">確認</button>
 </div>
 
 <script>
