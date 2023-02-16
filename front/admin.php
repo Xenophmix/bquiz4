@@ -43,6 +43,7 @@
           if (parseInt(res)) {
             location.href = 'back.php?do=admin';
           } else {
+            console.log(res)
             alert("帳號或密碼錯誤，請重新輸入");
           }
         })

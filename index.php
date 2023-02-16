@@ -26,8 +26,22 @@ include_once './api/base.php';
                                 <a href="?do=news">最新消息</a> |
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
-                                <a href="?do=login">會員登入</a> |
-                                <a href="?do=admin">管理登入</a>
+                                <?php
+                                if (!isset($_SESSION['mem'])) {
+                                ?>
+                                        <a href="?do=login">會員登入</a> |
+                                <?php
+                                } else {
+                                ?>
+                                        <a href="#" onclick="location.href='./api/logout.php?table=mem'">登出</a> |
+                                <?php
+                                }
+                                if (!isset($_SESSION['admin'])) {
+                                ?>
+                                        <a href="?do=admin">管理登入</a>
+                                <?php
+                                }
+                                ?>
                         </div>
                         <marquee> 年終特賣會開跑了&nbsp;&nbsp;&nbsp;&nbsp;情人節特惠活動</marquee>
                 </div>
