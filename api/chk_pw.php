@@ -9,19 +9,21 @@ unset($_GET['table']);
 
 switch ($table) {
   case 'mem':
-    if ($Mem->count($_GET)) {
-      $_SESSION['mem'] = $_GET['acc'];
-      echo 1;
-    } else {
-      echo 0;
-    }
+    $session_key = 'mem';
+    $model = $Mem;
     break;
   case 'admin':
-    if ($Admin->count($_GET)) {
-      $_SESSION['admin'] = $_GET['acc'];
-      echo 1;
-    } else {
-      echo 0;
-    }
+    $session_key = 'admin';
+    $model = $Admin;
     break;
+  default:
+    echo 0;
+    return;
+}
+
+if ($model->count($_GET)) {
+  $_SESSION[$session_key] = $_GET['acc'];
+  echo 1;
+} else {
+  echo 0;
 }
