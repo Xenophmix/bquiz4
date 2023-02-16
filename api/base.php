@@ -160,3 +160,5 @@ function q($sql)
     $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db10_3", 'root', '');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+$Bottom = new DB('bottom');
