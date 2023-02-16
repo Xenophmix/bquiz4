@@ -7,8 +7,8 @@
   </tr>
   <tr>
     <td class="tt ct">帳號</td>
-    <td class="pp"><input type="text" name="add" id="add">
-      <button>檢測帳號</button>
+    <td class="pp"><input type="text" name="acc" id="acc">
+      <button onclick="chk()">檢測帳號</button>
     </td>
   </tr>
   <tr>
@@ -29,7 +29,7 @@
   </tr>
 </table>
 <div class="ct">
-  <button>註冊</button>
+  <button onclick="reg()">註冊</button>
   <button>重置</button>
 </div>
 
@@ -71,7 +71,7 @@
         alert("此帳號已存在,請使用別的帳號")
       } else {
         $.post("./api/save_mem.php", mem, () => {
-
+          location.href = '?do=login'
         })
       }
     })
