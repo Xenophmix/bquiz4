@@ -45,3 +45,25 @@
     <input type="button" value="返回" onclick="location.href='?do=th'">
   </div>
 </form>
+<script>
+  getBigs()
+
+  $("#big").on("change",()=>{
+    getMids()
+  })
+  // getMids()
+  function getBigs() {
+    //   $.get("./api/get_bigs.php", (bigs) => {
+    //     $("#big").html(bigs)
+    //   })
+
+    $("#big").load("./api/get_bigs.php",()=>{
+      getMids()
+    })
+  }
+
+  function getMids() {
+    let big = $("#big").val()
+    $("#mid").load("./api/get_mids.php",{big})
+  }
+</script>
