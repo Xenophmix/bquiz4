@@ -40,4 +40,8 @@
       location.reload()
     })
   }
+
+  $.get("./api/get_bigs.php", (bigs) => {
+    $("#b").html(bigs);
+  })
 </script>
