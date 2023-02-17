@@ -11,7 +11,7 @@
   <input type="text" name="mid" id="mid">
   <button>新增</button>
 </div>
-<table>
+<table class="all">
   <tr class="tt">
     <td>asd</td>
     <td class="ct">
