@@ -24,7 +24,7 @@ $pr = unserialize($admin['pr']);
 			<a href="?">
 				<img src="./icon/0416.jpg">
 			</a>
-			<img src="./icon/0417.jpg">
+			<img src="./icon/0417.jpg" style="width:25%">
 		</div>
 		<div id="left" class="ct">
 			<div style="min-height:400px;">
