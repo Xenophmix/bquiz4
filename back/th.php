@@ -29,14 +29,23 @@ $bigs = $Type->all(['parent' => 0]);
         <button onclick="del('Type',<?= $big['id'] ?>)">刪除</button>
       </td>
     </tr>
-  <?php endforeach; ?>
-  <tr class="pp ct">
-    <td>asd</td>
-    <td>
-      <button>修改</button>
-      <button>刪除</button>
-    </td>
-  </tr>
+    <?php
+    if ($Type->count(['parent' => $big['id']])) {
+      $mids = $Type->all(['parent' => $big['id']]);
+    }
+    foreach ($mids as $mid) :
+    ?>
+      <tr class="pp ct">
+        <td><?= $mid['name'] ?></td>
+        <td>
+          <button data-id="<?= $mid['id'] ?>">修改</button>
+          <button onclick="del('Type',<?= $mid['id'] ?>)">刪除</button>
+        </td>
+      </tr>
+  <?php
+    endforeach;
+  endforeach;
+  ?>
 </table>
 <script>
   function addType(type) {
