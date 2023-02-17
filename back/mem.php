@@ -18,8 +18,8 @@
       <td><?= $row['acc'] ?></td>
       <td><?= $row['reg_date'] ?></td>
       <td>
-        <button onclick="location.href='?do=edit_admin&id=<?= $row['id'] ?>'">修改</button>
-        <button onclick="del('admin',<?= $row['id'] ?>)">刪除</button>
+        <button onclick="location.href='?do=mem_detail&id=<?= $row['id']; ?>'">修改</button>
+        <button onclick="del('mem',<?= $row['id'] ?>)">刪除</button>
       </td>
     </tr>
   <?php
