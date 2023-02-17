@@ -29,11 +29,11 @@ include_once "base.php";
 
 
 $table = $_GET['table'];
-$tableUP = ucfirst($table);
+// $tableUP = ucfirst($table);
 $session_key = $table;
 unset($_GET['table']);
 
-if (in_array($table, ['mem', 'admin']) && $model = $$tableUP) {
+if (in_array($table, ['mem', 'admin']) && $model = ${ucfirst($table)}) {
   if ($model->count($_GET)) {
     $_SESSION[$session_key] = $_GET['acc'];
     echo 1;
