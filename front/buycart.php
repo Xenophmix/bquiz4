@@ -9,7 +9,7 @@ if (!isset($_SESSION['mem'])) {
 }
 
 
-// dd($_SESSION['cart']);
+dd($_SESSION['cart']);
 
 
 
@@ -35,27 +35,38 @@ if (!isset($_SESSION['cart'])) {
       <td>刪除</td>
     </tr>
     <?php
-    foreach ($_SESSION['cart'] as $id => $qt)
+    foreach ($_SESSION['cart'] as $id => $qt) {
+
       $goods = $Goods->find($id);
     ?>
-    <tr class="pp ct">
-      <td><?= $goods['no']; ?></td>
-      <td><?= $goods['name']; ?></td>
-      <td><?= $qt; ?></td>
-      <td><?= $goods['stock']; ?></td>
-      <td><?= $goods['price']; ?></td>
-      <!--將商品單價乘上購買的數量成為小計-->
-      <td><?= $goods['price'] * $qt; ?></td>
-      <td>
-        <!--建立刪除商品的點擊函式-->
-        <img src="icon/0415.jpg" onclick="delCart(<?= $goods['id']; ?>)">
-      </td>
-    </tr>
+      <tr class="pp ct">
+        <td><?= $goods['no']; ?></td>
+        <td><?= $goods['name']; ?></td>
+        <td><?= $qt; ?></td>
+        <td><?= $goods['stock']; ?></td>
+        <td><?= $goods['price']; ?></td>
+        <!--將商品單價乘上購買的數量成為小計-->
+        <td><?= $goods['price'] * $qt; ?></td>
+        <td>
+          <!--建立刪除商品的點擊函式-->
+          <img src="icon/0415.jpg" onclick="delCart(<?= $goods['id']; ?>)">
+        </td>
+      </tr>
+    <?php
+    }
+    ?>
   </table>
   <div class="ct">
-    <img src="./icon/0411.jpg">
+    <img src="./icon/0411.jpg" onclick="location.href='index.php'">
     <img src="./icon/0412.jpg">
   </div>
 <?php
 }
 ?>
+<script>
+  function delCart(id){
+    $.post("./api/remove_item.php",{id},()=>{
+      location.href="?do=buycart";
+    })
+  }
+</script>
