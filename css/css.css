@@ -103,6 +103,10 @@ input[type=text],input[type=password]
 .s
 {
 	display:none;
+	margin-left: 30px;
+}
+#left .s a {
+	background-color: limegreen;
 }
 div.ww:hover > div.s
 {
