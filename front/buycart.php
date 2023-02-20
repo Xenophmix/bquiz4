@@ -9,7 +9,7 @@ if (!isset($_SESSION['mem'])) {
 }
 
 
-dd($_SESSION['cart']);
+// dd($_SESSION['cart']);
 
 
 
@@ -49,7 +49,7 @@ if (!isset($_SESSION['cart'])) {
         <td><?= $goods['price'] * $qt; ?></td>
         <td>
           <!--建立刪除商品的點擊函式-->
-          <img src="icon/0415.jpg" onclick="delCart(<?= $goods['id']; ?>)">
+          <img src="icon/0415.jpg" onclick="delCart(<?= $goods['id']; ?>,this)">
         </td>
       </tr>
     <?php
@@ -58,15 +58,17 @@ if (!isset($_SESSION['cart'])) {
   </table>
   <div class="ct">
     <img src="./icon/0411.jpg" onclick="location.href='index.php'">
-    <img src="./icon/0412.jpg">
+    <img src="./icon/0412.jpg" onclick="location.href='?do=order'">
   </div>
 <?php
 }
 ?>
 <script>
-  function delCart(id){
-    $.post("./api/remove_item.php",{id},()=>{
-      location.href="?do=buycart";
+  function delCart(id) {
+    $.post("./api/remove_item.php", {
+      id
+    }, () => {
+      location.href = "?do=buycart";
     })
   }
 </script>
