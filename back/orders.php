@@ -10,7 +10,7 @@
     <td>操作</td>
   </tr>
   <?php
-  $orders = $Order->all();
+  $orders = $Orders->all();
   foreach ($orders as $order) :
   ?>
     <tr class="pp ct">
